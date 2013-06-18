@@ -794,7 +794,7 @@ class XapianSearchBackend(BaseSearchBackend):
         """
         if spelling_query:
             if ' ' in spelling_query:
-                return ' '.join([database.get_spelling_suggestion(term) for term in spelling_query.split()])
+                return ' '.join([database.get_spelling_suggestion(term) or term for term in spelling_query.split()])
             else:
                 return database.get_spelling_suggestion(spelling_query)
 
