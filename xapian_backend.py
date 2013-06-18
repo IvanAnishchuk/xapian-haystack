@@ -1211,7 +1211,7 @@ class XapianSearchQuery(BaseSearchQuery):
         """
         if field:
             return xapian.Query(
-                xapian.Query.OP_PHRASE, [
+                xapian.Query.OP_AND, [
                     '%s%s%s' % (
                         DOCUMENT_CUSTOM_TERM_PREFIX, field.upper(), term
                     ) for term in term_list
